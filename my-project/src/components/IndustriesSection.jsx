@@ -15,53 +15,41 @@ const categories = [
     title: "Vehicle Tracking Devices",
     description:
       "Real-time GPS tracking, geo-fencing alerts, driver behavior monitoring, and fleet management solutions.",
-    icon: <FaCar className="text-blue-600 text-3xl" />,
-    image:
-      "https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=900&q=80"
+    icon: <FaCar className="text-blue-600 text-4xl" />
   },
   {
     title: "OBD-II Telematics",
     description:
       "Plug-in OBD devices for vehicle diagnostics, mileage tracking, fuel usage, and predictive maintenance.",
-    icon: <FaPlug className="text-purple-600 text-3xl" />,
-    image:
-      "https://images.unsplash.com/photo-1607863680331-60f3b6fe183e?auto=format&fit=crop&w=900&q=80"
+    icon: <FaPlug className="text-purple-600 text-4xl" />
   },
   {
     title: "Dash Cameras",
     description:
       "IoT-connected dashcams with cloud upload, live streaming, AI driver monitoring, and collision detection.",
-    icon: <FaVideo className="text-red-500 text-3xl" />,
-    image:
-      "https://images.unsplash.com/photo-1577953183163-8f7e270d2bb0?auto=format&fit=crop&w=900&q=80"
+    icon: <FaVideo className="text-red-500 text-4xl" />
   },
   {
     title: "Smart Parking Systems",
     description:
       "Ultrasonic and camera-based parking sensors for real-time space detection and smart city parking solutions.",
-    icon: <FaParking className="text-green-600 text-3xl" />,
-    image:
-      "https://images.unsplash.com/photo-1549921296-3a7a7d6a5d8b?auto=format&fit=crop&w=900&q=80"
+    icon: <FaParking className="text-green-600 text-4xl" />
   },
   {
     title: "Industrial IoT Devices",
     description:
       "Smart meters, asset tracking, predictive maintenance, and automation hardware for industries.",
-    icon: <FaIndustry className="text-yellow-500 text-3xl" />,
-    image:
-      "https://images.unsplash.com/photo-1591696205602-2f950c417cb3?auto=format&fit=crop&w=900&q=80"
+    icon: <FaIndustry className="text-yellow-500 text-4xl" />
   },
   {
     title: "Robotics & AGVs",
     description:
       "Autonomous ground vehicles, delivery robots, teleoperation devices, and warehouse automation robots.",
-    icon: <FaRobot className="text-pink-500 text-3xl" />,
-    image:
-      "https://images.unsplash.com/photo-1581094794329-c8112a89ec92?auto=format&fit=crop&w=900&q=80"
+    icon: <FaRobot className="text-pink-500 text-4xl" />
   }
 ];
 
-export default function IoTDeviceManufacturing() {
+export default function IndustriesSection() {
   const scrollRef = useRef(null);
 
   const scroll = (direction) => {
@@ -87,8 +75,8 @@ export default function IoTDeviceManufacturing() {
               Advanced IoT & GPS Solutions
             </h2>
             <p className="mt-3 text-gray-700 text-lg">
-              We design and manufacture IoT devices for vehicles, industries, robotics, and smart
-              cities with cutting-edge connectivity and AI-powered automation.
+              We design and manufacture IoT devices for vehicles, industries,
+              robotics, and smart cities with cutting-edge connectivity and AI-powered automation.
             </p>
           </div>
           {/* Buttons */}
@@ -116,22 +104,20 @@ export default function IoTDeviceManufacturing() {
           {categories.map((item, index) => (
             <div
               key={index}
-              className="min-w-[300px] bg-white rounded-lg shadow-sm hover:shadow-lg transition-shadow overflow-hidden"
+              className="min-w-[280px] bg-white rounded-xl shadow-sm hover:shadow-lg transition-all p-6 flex flex-col items-center text-center"
             >
-              <img
-                src={item.image}
-                alt={item.title}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-5">
-                <div className="mb-3">{item.icon}</div>
-                <h3 className="font-semibold text-lg text-gray-900">
-                  {item.title}
-                </h3>
-                <p className="text-gray-700 text-sm mt-2">
-                  {item.description}
-                </p>
+              {/* Icon */}
+              <div className="mb-4 flex items-center justify-center w-16 h-16 rounded-full bg-gray-100">
+                {item.icon}
               </div>
+              {/* Title */}
+              <h3 className="font-semibold text-lg text-gray-900">
+                {item.title}
+              </h3>
+              {/* Description */}
+              <p className="text-gray-600 text-sm mt-2 leading-relaxed">
+                {item.description}
+              </p>
             </div>
           ))}
         </div>

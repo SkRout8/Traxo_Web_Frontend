@@ -50,10 +50,10 @@ export default function ProductSection() {
     const productList = [...hardware, ...hardware];
 
     return (
-        <section className="py-16 bg-gradient-to-b from-black to-gray-900 overflow-hidden">
+        <section className="py-16 bg-[#f0f5ff] overflow-hidden">
             <div className="max-w-7xl mx-auto px-6">
                 {/* Section Title */}
-               
+
 
                 <motion.h2
                     initial={{ opacity: 0, y: 30 }}

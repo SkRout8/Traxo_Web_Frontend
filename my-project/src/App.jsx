@@ -6,14 +6,14 @@ import Services from "./components/pages/Services";
 import Products from "./components/pages/Products";
 import Contact from "./components/pages/Contact";
 import NavbarTraxo from "./components/NavbarTraxo";
-import CustomCursor from "./components/CustomCursor";
+
 
 
 function App() {
   return (
     <div>
      <NavbarTraxo/>
-     <CustomCursor/>
+     
      
 
       <Routes>

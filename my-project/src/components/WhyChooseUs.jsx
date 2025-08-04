@@ -31,7 +31,7 @@ const features = [
 
 export default function WhyChooseUs() {
   return (
-    <section className="py-20 bg-gradient-to-b from-white to-gray-100 text-black relative overflow-hidden">
+    <section className="py-20 bg-[#f0f5ff] text-black relative overflow-hidden">
       {/* Decorative Background Glow */}
       <div className="absolute top-0 left-0 w-72 h-72 bg-yellow-500/20 blur-3xl rounded-full -z-10"></div>
       <div className="absolute bottom-0 right-0 w-72 h-72 bg-yellow-500/20 blur-3xl rounded-full -z-10"></div>
