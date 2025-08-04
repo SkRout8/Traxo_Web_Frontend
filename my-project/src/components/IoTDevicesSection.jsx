@@ -1,6 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
+import traxo from '../images/traxo4.jpeg'
 import {
+
   FaMicrochip,
   FaSatelliteDish,
   FaRobot,
@@ -32,7 +34,7 @@ const features = [
 
 export default function IoTDevicesSection() {
   return (
-    <section className="py-20 bg-white text-black">
+    <section className="py-20 bg-[#f0f5ff] text-black">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         
         {/* Left Content */}
@@ -97,7 +99,7 @@ export default function IoTDevicesSection() {
           className="flex justify-center"
         >
           <img
-            src="https://5.imimg.com/data5/XW/QS/MB/ANDROID-61116453/product-jpeg-250x250.jpg"
+            src={traxo}
             alt="IoT Manufacturing"
             className="w-full max-w-md rounded-xl shadow-lg border-4 border-yellow-500"
           />

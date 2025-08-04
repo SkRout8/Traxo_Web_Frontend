@@ -26,7 +26,7 @@ const gpsSolutions = [
 
 export default function GPSTrackingSection() {
   return (
-    <section className="py-20 bg-black text-white relative overflow-hidden">
+    <section className="py-20 bg-[#f0f5ff] text-white relative overflow-hidden">
       {/* Background Accent */}
       <div className="absolute inset-0 bg-gradient-to-b from-yellow-500/5 to-transparent pointer-events-none"></div>
 
@@ -38,7 +38,7 @@ export default function GPSTrackingSection() {
         viewport={{ once: true }}
         className="text-center text-4xl font-bold mb-16 tracking-wide"
       >
-        GPS <span className="text-yellow-400">Tracking Solutions</span>
+         <span className="text-gray-900"> GPS Tracking Solutions</span>
       </motion.h2>
 
       {/* GPS Solutions Cards */}

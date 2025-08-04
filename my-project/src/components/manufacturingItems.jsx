@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaCar, FaIndustry, FaRobot } from "react-icons/fa";
+import traxo1 from '../images/Traxo.jpeg'
 
 const manufacturingItems = [
   {
@@ -16,8 +17,7 @@ const manufacturingItems = [
     title: "Vehicle GPS Tracking",
     description:
       "Autonomous vehicle systems, delivery robots, robotic arms, AGVs, teleoperation devices, and defense surveillance vehicles.",
-    image:
-      "https://5.imimg.com/data5/FQ/LQ/FM/ANDROID-61116453/logopit-1567580991007-png-500x500.png"
+    image:traxo1
   },
   {
     icon: <FaIndustry size={40} />,
@@ -31,7 +31,7 @@ const manufacturingItems = [
 
 export default function ManufacturingCapabilities() {
   return (
-    <section className="py-20 bg-gradient-to-b from-black to-gray-900 text-white">
+    <section className="py-20 bg-[#f0f5ff] text-white">
       {/* Title */}
       <motion.h2
         initial={{ opacity: 0, y: 30 }}
@@ -40,7 +40,7 @@ export default function ManufacturingCapabilities() {
         viewport={{ once: true }}
         className="text-center text-4xl font-bold mb-16 tracking-wide"
       >
-        Our <span className="text-yellow-400">Manufacturing Capabilities</span>
+        <span className="text-gray-900"> Our Manufacturing Capabilities</span>
         <motion.span
           initial={{ width: 0 }}
           whileInView={{ width: "160px" }}
@@ -77,7 +77,7 @@ export default function ManufacturingCapabilities() {
 
               {/* Text */}
               <div
-                className={`backdrop-blur-md bg-white/10 rounded-2xl p-6 border border-gray-700 hover:border-yellow-400 hover:shadow-yellow-400/40 transition-all duration-300 ${
+                className={`backdrop-blur-md bg-white/10 rounded-2xl text-black p-6 border border-gray-700 hover:border-yellow-400 hover:shadow-yellow-400/40 transition-all duration-300 ${
                   isEven ? "order-2" : "order-1"
                 }`}
               >
@@ -85,7 +85,7 @@ export default function ManufacturingCapabilities() {
                   {item.icon}
                 </div>
                 <h3 className="text-2xl font-semibold mb-3">{item.title}</h3>
-                <p className="text-gray-300">{item.description}</p>
+                <p className="text-gray-900">{item.description}</p>
               </div>
             </motion.div>
           );
