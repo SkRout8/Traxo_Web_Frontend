@@ -36,6 +36,18 @@ import {
   FaCamera,
   FaBell,
   FaPlug,
+  FaCarSide,
+  FaTools,
+  FaParking,
+  FaRobot,
+  FaSatelliteDish,
+  FaShieldAlt,
+  FaServer,
+  FaCloud,
+  FaMobile,
+  FaLock,
+  FaCertificate,
+  FaBrain,
 } from "react-icons/fa";
 
 import { Link } from "react-router-dom";
@@ -44,7 +56,7 @@ import logo from "../images/logo.png";
 const NavbarTraxo = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
-  const [activeSubDropdown, setActiveSubDropdown] = useState(null); // For Hardware submenu
+  const [activeSubDropdown, setActiveSubDropdown] = useState(null);
   const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1024);
 
   useEffect(() => {
@@ -97,7 +109,70 @@ const NavbarTraxo = () => {
       { icon: <FaLightbulb />, label: "Innovation Projects" }
     ],
     services: [
-      { icon: <FaCogs />, label: "Hardware", hasSubmenu: true }, // New Hardware submenu
+      {
+        icon: <FaMicrochip />,
+        label: "IoT Device Manufacturing",
+        hasSubmenu: true,
+        submenuKey: "iot_manufacturing",
+        submenu: [
+          { icon: <FaCarSide />, label: "Vehicle Tracking Devices" },
+          { icon: <FaTools />, label: "OBD-II Telematics" },
+          { icon: <FaCamera />, label: "Dash Cameras" },
+          { icon: <FaParking />, label: "Smart Parking Systems" },
+          { icon: <FaIndustry />, label: "Industrial IoT Devices" },
+          { icon: <FaRobot />, label: "Robotics & AGVs" },
+        ]
+      },
+      {
+        icon: <FaRobot />,
+        label: "Vehicle Robotics Device Manufacturer",
+        hasSubmenu: true,
+        submenuKey: "vehicle_robotics",
+        submenu: [
+          { icon: <FaRobot />, label: "Autonomous Vehicle Systems" },
+          { icon: <FaCarSide />, label: "Robotic Delivery Vehicles" },
+          { icon: <FaTools />, label: "In-Vehicle Robotics" },
+          { icon: <FaIndustry />, label: "AGVs and AMRs" },
+          { icon: <FaSatelliteDish />, label: "Teleoperation Devices" },
+          { icon: <FaShieldAlt />, label: "Surveillance & Defense Robotics" },
+        ]
+      },
+      {
+        icon: <FaCogs />,
+        label: "IoT Product Design & Engineering",
+        hasSubmenu: true,
+        submenuKey: "iot_design",
+        submenu: [
+          { icon: <FaLightbulb />, label: "Concept & Requirement Definition" },
+          { icon: <FaMicrochip />, label: "Hardware Design" },
+          { icon: <FaServer />, label: "Firmware Development" },
+          { icon: <FaNetworkWired />, label: "Connectivity & Networking" },
+          { icon: <FaCloud />, label: "Cloud Backend & API" },
+          { icon: <FaMobile />, label: "Frontend & Mobile App" },
+          { icon: <FaTools />, label: "Testing & Validation" },
+          { icon: <FaLock />, label: "Security Engineering" },
+          { icon: <FaCertificate />, label: "Certification & Compliance" },
+        ]
+      },
+      {
+        icon: <FaCarSide />,
+        label: "Advanced Driver Assistance System",
+        hasSubmenu: true,
+        submenuKey: "adas",
+        submenu: [
+          { icon: <FaCamera />, label: "Cameras" },
+          { icon: <FaSatelliteDish />, label: "Radar & LIDAR" },
+          { icon: <FaParking />, label: "Ultrasonic Sensors" },
+          { icon: <FaMapMarkerAlt />, label: "GPS + IMU" },
+          { icon: <FaMicrochip />, label: "Embedded Systems" },
+          { icon: <FaBrain />, label: "AI & Computer Vision" },
+        ]
+      },
+      { icon: <FaNetworkWired />, label: "V2X Communication in Vehicles", hasSubmenu: false },
+      { icon: <FaSimCard />, label: "M2M eSIM Manufacturing", hasSubmenu: false },
+    ],
+    products: [
+      { icon: <FaCogs />, label: "Hardware", hasSubmenu: true, submenuKey: "hardware" },
     ],
     hardware: [
       { icon: <FaMicrochip />, label: "AIS-140 (VLTD)" },
@@ -108,14 +183,6 @@ const NavbarTraxo = () => {
       { icon: <FaIdCard />, label: "Traxo RFID" },
       { icon: <FaPlug />, label: "Cable Connection" },
       { icon: <FaPlug />, label: "Harness Connection" }
-    ],
-    products: [
-      { icon: <FaRocket />, label: "MotorEye - Model: EFRT (Speed Limiting Device)" },
-      { icon: <FaChartLine />, label: "Limits - Model: EPI (Speed Limiting Device)" },
-      { icon: <FaMapMarkerAlt />, label: "Geo - Limits Model: GSLD (Speed Limiting Device)" },
-      { icon: <FaMicrochip />, label: "AIS-140/IS16833 (Vehicle Location Tracking Device VLTD)" },
-      { icon: <FaSimCard />, label: "e-SIM Dual/Multi Profile e-SIM" },
-      { icon: <FaIdCard />, label: "Trano RFID" },
     ],
     dealer: [
       { icon: <FaHandshake />, label: "Dealer Enquiry" },
@@ -134,7 +201,13 @@ const NavbarTraxo = () => {
 
   const getGridColumns = (key) => {
     if (key === "manufacture") return "grid-cols-1 sm:grid-cols-2 lg:grid-cols-4";
+    if (key === "services") return "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3";
     if (key === "hardware") return "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3";
+    return "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3";
+  };
+
+  const getSubmenuGridColumns = (submenuKey) => {
+    if (submenuKey === "iot_design") return "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3";
     return "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3";
   };
 
@@ -153,7 +226,7 @@ const NavbarTraxo = () => {
       </div>
 
       {/* Main Nav */}
-      <nav className="bg-[#ffcf21] py-4 px-4 fixed lg:top-8 left-0 right-0 z-40 shadow-lg">
+      <nav className="bg-gradient-to-r from-white to-[#ffcf21] py-4 px-4 fixed lg:top-8 left-0 right-0 z-40 shadow-lg">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           {/* Logo */}
           <Link to="/">
@@ -194,76 +267,75 @@ const NavbarTraxo = () => {
         </div>
       </nav>
 
-     {/* Desktop Dropdown */}
-{isDesktop && (
-  <AnimatePresence>
-    {activeDropdown && dropdownContent[activeDropdown] && (
-      <motion.div
-        variants={dropdownVariants}
-        initial="hidden"
-        animate="visible"
-        exit="exit"
-        className="fixed top-[96px] left-0 right-0 z-30 overflow-visible" // allow child to overflow
-        onMouseEnter={() => setActiveDropdown(activeDropdown)}
-        onMouseLeave={() => {
-          setActiveDropdown(null);
-          setActiveSubDropdown(null);
-        }}
-      >
-        <div className="bg-black shadow-2xl mx-8 rounded-b-xl overflow-visible">
-          <div
-            className={`max-w-6xl mx-auto py-8 px-8 grid ${getGridColumns(activeDropdown)} gap-6`}
-            style={{
-              maxHeight: "80vh", // prevent going off screen
-              overflowY: "auto", // scroll if too tall
-            }}
-          >
-            {dropdownContent[activeDropdown].map((link, i) => (
-              <div
-                key={i}
-                onMouseEnter={() => link.hasSubmenu && setActiveSubDropdown("hardware")}
-                onMouseLeave={() => link.hasSubmenu && setActiveSubDropdown(null)}
-                className="flex flex-col items-center justify-center text-center p-6 hover:bg-gray-900 rounded-lg cursor-pointer transition-all duration-200 group border-r border-gray-700 last:border-r-0 relative"
-              >
-                <div className="text-[#ffcf21] text-4xl mb-4 group-hover:text-white group-hover:scale-110 transition-all duration-200 w-20 h-20 flex items-center justify-center rounded-full border-2 border-white group-hover:border-[#ffcf21]">
-                  {link.icon}
-                </div>
-                <span className="text-white font-medium group-hover:text-[#ffcf21] transition-colors text-lg">
-                  {link.label}
-                </span>
-
-                {/* Hardware Submenu */}
-                {link.hasSubmenu && activeSubDropdown === "hardware" && (
-                  <div
-                    className="absolute top-0 left-full bg-black p-6 shadow-xl grid grid-cols-3 gap-6 w-[700px] overflow-y-auto"
-                    style={{
-                      maxHeight: "80vh", // limit height
-                    }}
-                  >
-                    {dropdownContent.hardware.map((sub, idx) => (
-                      <div
-                        key={idx}
-                        className="flex flex-col items-center text-center hover:bg-gray-900 p-4 rounded-lg cursor-pointer group"
-                      >
-                        <div className="text-[#ffcf21] text-3xl mb-3 group-hover:text-white">
-                          {sub.icon}
-                        </div>
-                        <span className="text-white text-sm group-hover:text-[#ffcf21]">
-                          {sub.label}
-                        </span>
+      {/* Desktop Dropdown */}
+      {isDesktop && (
+        <AnimatePresence>
+          {activeDropdown && dropdownContent[activeDropdown] && (
+            <motion.div
+              variants={dropdownVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              className="fixed top-[96px] left-0 right-0 z-30 overflow-visible"
+              onMouseEnter={() => setActiveDropdown(activeDropdown)}
+              onMouseLeave={() => {
+                setActiveDropdown(null);
+                setActiveSubDropdown(null);
+              }}
+            >
+              <div className="bg-black shadow-2xl mx-8 rounded-b-xl overflow-visible">
+                <div
+                  className={`max-w-6xl mx-auto py-8 px-8 grid ${getGridColumns(activeDropdown)} gap-6`}
+                  style={{
+                    maxHeight: "80vh",
+                    overflowY: "auto",
+                  }}
+                >
+                  {dropdownContent[activeDropdown].map((link, i) => (
+                    <div
+                      key={i}
+                      onMouseEnter={() => link.hasSubmenu && setActiveSubDropdown(link.submenuKey)}
+                      onMouseLeave={() => link.hasSubmenu && setActiveSubDropdown(null)}
+                      className="flex flex-col items-center justify-center text-center p-6 hover:bg-gray-900 rounded-lg cursor-pointer transition-all duration-200 group border-r border-gray-700 last:border-r-0 relative"
+                    >
+                      <div className="text-[#ffcf21] text-4xl mb-4 group-hover:text-white group-hover:scale-110 transition-all duration-200 w-20 h-20 flex items-center justify-center rounded-full border-2 border-white group-hover:border-[#ffcf21]">
+                        {link.icon}
                       </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </motion.div>
-    )}
-  </AnimatePresence>
-)}
+                      <span className="text-white font-medium group-hover:text-[#ffcf21] transition-colors text-lg">
+                        {link.label}
+                      </span>
 
+                      {/* Submenu */}
+                      {link.hasSubmenu && activeSubDropdown === link.submenuKey && (
+                        <div
+                          className={`absolute top-0 left-full bg-black p-6 shadow-xl grid ${getSubmenuGridColumns(link.submenuKey)} gap-6 w-[700px] overflow-y-auto`}
+                          style={{
+                            maxHeight: "80vh",
+                          }}
+                        >
+                          {link.submenu.map((sub, idx) => (
+                            <div
+                              key={idx}
+                              className="flex flex-col items-center text-center hover:bg-gray-900 p-4 rounded-lg cursor-pointer group"
+                            >
+                              <div className="text-[#ffcf21] text-3xl mb-3 group-hover:text-white">
+                                {sub.icon}
+                              </div>
+                              <span className="text-white text-sm group-hover:text-[#ffcf21]">
+                                {sub.label}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      )}
 
       {/* Mobile Menu */}
       <AnimatePresence>
@@ -325,21 +397,21 @@ const NavbarTraxo = () => {
                           <button
                             onClick={() =>
                               link.hasSubmenu
-                                ? setActiveSubDropdown(activeSubDropdown === "hardware" ? null : "hardware")
+                                ? setActiveSubDropdown(activeSubDropdown === link.submenuKey ? null : link.submenuKey)
                                 : null
                             }
-                            className="flex items-center gap-2 text-sm hover:text-yellow-400 cursor-pointer transition-colors py-1 w-full justify-between "
+                            className="flex items-center gap-2 text-sm hover:text-yellow-400 cursor-pointer transition-colors py-1 w-full justify-between"
                           >
                             <span className="flex items-center gap-2 text-yellow-400">{link.icon}</span>
                             {link.label}
-                            {link.hasSubmenu && <ChevronDown className={`transition-transform duration-200 ${activeSubDropdown === "hardware" ? "rotate-180" : ""}`} />}
+                            {link.hasSubmenu && <ChevronDown className={`transition-transform duration-200 ${activeSubDropdown === link.submenuKey ? "rotate-180" : ""}`} />}
                           </button>
 
-                          {/* Mobile Hardware Submenu */}
-                          {link.hasSubmenu && activeSubDropdown === "hardware" && (
-                            <div className="ml-6 mt-2 grid grid-cols-2 gap-3">
-                              {dropdownContent.hardware.map((sub, idx) => (
-                                <div key={idx} className="flex items-center gap-2 text-xs hover:text-yellow-400 cursor-pointer">
+                          {/* Mobile Submenu */}
+                          {link.hasSubmenu && activeSubDropdown === link.submenuKey && (
+                            <div className="ml-6 mt-2 grid grid-cols-1 gap-3">
+                              {link.submenu.map((sub, idx) => (
+                                <div key={idx} className="flex items-center gap-2 text-xs hover:text-yellow-400 cursor-pointer py-1">
                                   <span className="text-yellow-400">{sub.icon}</span>
                                   {sub.label}
                                 </div>
