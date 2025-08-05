@@ -35,7 +35,6 @@ import {
   FaBatteryFull,
   FaCamera,
   FaBell,
-  FaPlug,
   FaCarSide,
   FaTools,
   FaParking,
@@ -45,11 +44,9 @@ import {
   FaServer,
   FaCloud,
   FaMobile,
-  FaLock,
   FaCertificate,
   FaBrain,
 } from "react-icons/fa";
-
 import { Link } from "react-router-dom";
 import logo from "../images/logo.png";
 
@@ -96,8 +93,9 @@ const NavbarTraxo = () => {
       { icon: <FaCogs />, label: "Our Infrastructure" },
       { icon: <FaGlobeAsia />, label: "Market Presence" },
       { icon: <FaBullseye />, label: "Our Mission" },
-      { icon: <FaEye />, label: "Our Vision" }
+      { icon: <FaEye />, label: "Our Vision" },
     ],
+
     manufacture: [
       { icon: <FaMicrochip />, label: "Circuit Design" },
       { icon: <FaProjectDiagram />, label: "PCB Layout" },
@@ -106,8 +104,9 @@ const NavbarTraxo = () => {
       { icon: <FaCogs />, label: "Concept to Production" },
       { icon: <FaCheckCircle />, label: "Testing & Validation" },
       { icon: <FaPuzzlePiece />, label: "Custom Solution" },
-      { icon: <FaLightbulb />, label: "Innovation Projects" }
+      { icon: <FaLightbulb />, label: "Innovation Projects" },
     ],
+
     services: [
       {
         icon: <FaMicrochip />,
@@ -121,7 +120,7 @@ const NavbarTraxo = () => {
           { icon: <FaParking />, label: "Smart Parking Systems" },
           { icon: <FaIndustry />, label: "Industrial IoT Devices" },
           { icon: <FaRobot />, label: "Robotics & AGVs" },
-        ]
+        ],
       },
       {
         icon: <FaRobot />,
@@ -135,7 +134,7 @@ const NavbarTraxo = () => {
           { icon: <FaIndustry />, label: "AGVs and AMRs" },
           { icon: <FaSatelliteDish />, label: "Teleoperation Devices" },
           { icon: <FaShieldAlt />, label: "Surveillance & Defense Robotics" },
-        ]
+        ],
       },
       {
         icon: <FaCogs />,
@@ -152,7 +151,7 @@ const NavbarTraxo = () => {
           { icon: <FaTools />, label: "Testing & Validation" },
           { icon: <FaLock />, label: "Security Engineering" },
           { icon: <FaCertificate />, label: "Certification & Compliance" },
-        ]
+        ],
       },
       {
         icon: <FaCarSide />,
@@ -166,14 +165,18 @@ const NavbarTraxo = () => {
           { icon: <FaMapMarkerAlt />, label: "GPS + IMU" },
           { icon: <FaMicrochip />, label: "Embedded Systems" },
           { icon: <FaBrain />, label: "AI & Computer Vision" },
-        ]
+        ],
       },
-      { icon: <FaNetworkWired />, label: "V2X Communication in Vehicles", hasSubmenu: false },
-      { icon: <FaSimCard />, label: "M2M eSIM Manufacturing", hasSubmenu: false },
+      { icon: <FaNetworkWired />, label: "V2X Communication in Vehicles" },
+      { icon: <FaSimCard />, label: "M2M eSIM Manufacturing" },
     ],
+
     products: [
       { icon: <FaCogs />, label: "Hardware", hasSubmenu: true, submenuKey: "hardware" },
+      { icon: <FaGlobeAsia />, label: "Software Solutions", hasSubmenu: true, submenuKey: "software" },
+      { icon: <FaChartLine />, label: "Analytics & Telematics", hasSubmenu: true, submenuKey: "analytics" },
     ],
+
     hardware: [
       { icon: <FaMicrochip />, label: "AIS-140 (VLTD)" },
       { icon: <FaCamera />, label: "Vehicle Camera System" },
@@ -181,9 +184,24 @@ const NavbarTraxo = () => {
       { icon: <FaBatteryFull />, label: "Li-ion Battery" },
       { icon: <FaSimCard />, label: "E-SIM" },
       { icon: <FaIdCard />, label: "Traxo RFID" },
-      { icon: <FaPlug />, label: "Cable Connection" },
-      { icon: <FaPlug />, label: "Harness Connection" }
+      { icon: <FaPlug />, label: "Cable Connection Harness" },
+      { icon: <FaServer />, label: "OBD-II Can Connection" },
+     
     ],
+
+    software: [
+      { icon: <FaCloud />, label: "Cloud Dashboard" },
+      { icon: <FaMobile />, label: "Mobile Management App" },
+      { icon: <FaChartLine />, label: "Telematics Data Portal" },
+      { icon: <FaCertificate />, label: "Firmware Update Tool" },
+    ],
+
+    analytics: [
+      { icon: <FaChartLine />, label: "Fleet Analytics" },
+      { icon: <FaMoneyBillWave />, label: "Billing & Invoicing" },
+      { icon: <FaClipboardList />, label: "Compliance Reporting" },
+    ],
+
     dealer: [
       { icon: <FaHandshake />, label: "Dealer Enquiry" },
       { icon: <IoConstructOutline />, label: "RFC/Service Centers" },
@@ -381,46 +399,32 @@ const NavbarTraxo = () => {
                     className="flex justify-between w-full items-center gap-2 text-lg hover:text-yellow-400 transition-colors"
                   >
                     <span className="flex items-center gap-2">{item.icon}{item.name}</span>
-                    {item.hasDropdown && <ChevronDown className={`transition-transform duration-200 ${activeDropdown === item.key ? "rotate-180" : ""}`} />}
+                    {item.hasDropdown && <ChevronDown className="w-4 h-4" />}
                   </button>
-
-                  {/* Mobile Dropdown Content */}
-                  {item.hasDropdown && activeDropdown === item.key && (
-                    <motion.div
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: "auto" }}
-                      exit={{ opacity: 0, height: 0 }}
-                      className="mt-2 ml-6 space-y-2"
-                    >
+                  {activeDropdown === item.key && dropdownContent[item.key] && (
+                    <div className="mt-2 pl-6 space-y-2">
                       {dropdownContent[item.key].map((link, i) => (
-                        <div key={i}>
-                          <button
-                            onClick={() =>
-                              link.hasSubmenu
-                                ? setActiveSubDropdown(activeSubDropdown === link.submenuKey ? null : link.submenuKey)
-                                : null
-                            }
-                            className="flex items-center gap-2 text-sm hover:text-yellow-400 cursor-pointer transition-colors py-1 w-full justify-between"
-                          >
-                            <span className="flex items-center gap-2 text-yellow-400">{link.icon}</span>
+                        <div key={i} className="flex flex-col">
+                          <span className="flex items-center gap-2 text-sm hover:text-yellow-400 transition-colors">
+                            {link.icon}
                             {link.label}
-                            {link.hasSubmenu && <ChevronDown className={`transition-transform duration-200 ${activeSubDropdown === link.submenuKey ? "rotate-180" : ""}`} />}
-                          </button>
-
-                          {/* Mobile Submenu */}
-                          {link.hasSubmenu && activeSubDropdown === link.submenuKey && (
-                            <div className="ml-6 mt-2 grid grid-cols-1 gap-3">
+                          </span>
+                          {link.hasSubmenu && link.submenu && (
+                            <div className="pl-6 mt-1 space-y-1">
                               {link.submenu.map((sub, idx) => (
-                                <div key={idx} className="flex items-center gap-2 text-xs hover:text-yellow-400 cursor-pointer py-1">
-                                  <span className="text-yellow-400">{sub.icon}</span>
+                                <span
+                                  key={idx}
+                                  className="flex items-center gap-2 text-xs hover:text-yellow-400 transition-colors"
+                                >
+                                  {sub.icon}
                                   {sub.label}
-                                </div>
+                                </span>
                               ))}
                             </div>
                           )}
                         </div>
                       ))}
-                    </motion.div>
+                    </div>
                   )}
                 </div>
               ))}
