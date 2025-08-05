@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
+
 import {
   IoPeopleOutline,
   IoBusinessOutline,
@@ -44,8 +46,10 @@ import {
   FaRobot,
   FaSatelliteDish,
   FaShieldAlt,
+  FaChartLine,
+  FaMoneyBillWave,
+  FaClipboardList,
 } from "react-icons/fa";
-import { Link } from "react-router-dom";
 import logo from "../images/logo.png";
 
 const NavbarTraxo = () => {
@@ -91,8 +95,9 @@ const NavbarTraxo = () => {
       { icon: <FaCogs />, label: "Our Infrastructure" },
       { icon: <FaGlobeAsia />, label: "Market Presence" },
       { icon: <FaBullseye />, label: "Our Mission" },
-      { icon: <FaEye />, label: "Our Vision" }
+      { icon: <FaEye />, label: "Our Vision" },
     ],
+
     manufacture: [
       { icon: <FaMicrochip />, label: "Circuit Design" },
       { icon: <FaProjectDiagram />, label: "PCB Layout" },
@@ -101,92 +106,56 @@ const NavbarTraxo = () => {
       { icon: <FaCogs />, label: "Concept to Production" },
       { icon: <FaCheckCircle />, label: "Testing & Validation" },
       { icon: <FaPuzzlePiece />, label: "Custom Solution" },
-      { icon: <FaLightbulb />, label: "Innovation Projects" }
+      { icon: <FaLightbulb />, label: "Innovation Projects" },
     ],
-     services: [
-          {
-            icon: <FaMicrochip />,
-            label: "IoT Device Manufacturing",
-            hasSubmenu: true,
-            submenuKey: "iot_manufacturing",
-            submenu: [
-              { icon: <FaCarSide />, label: "Vehicle Tracking Devices" },
-              { icon: <FaTools />, label: "OBD-II Telematics" },
-              { icon: <FaCamera />, label: "Dash Cameras" },
-              { icon: <FaParking />, label: "Smart Parking Systems" },
-              { icon: <FaIndustry />, label: "Industrial IoT Devices" },
-              { icon: <FaRobot />, label: "Robotics & AGVs" },
-            ],
-          },
-          {
-            icon: <FaRobot />,
-            label: "Vehicle Robotics Device Manufacturer",
-            hasSubmenu: true,
-            submenuKey: "vehicle_robotics",
-            submenu: [
-              { icon: <FaRobot />, label: "Autonomous Vehicle Systems" },
-              { icon: <FaCarSide />, label: "Robotic Delivery Vehicles" },
-              { icon: <FaTools />, label: "In-Vehicle Robotics" },
-              { icon: <FaIndustry />, label: "AGVs and AMRs" },
-              { icon: <FaSatelliteDish />, label: "Teleoperation Devices" },
-              { icon: <FaShieldAlt />, label: "Surveillance & Defense Robotics" },
-            ],
-          },
-          {
-            icon: <FaCogs />,
-            label: "IoT Product Design & Engineering",
-            hasSubmenu: true,
-            submenuKey: "iot_design",
-            submenu: [
-              { icon: <FaLightbulb />, label: "Concept & Requirement Definition" },
-              { icon: <FaMicrochip />, label: "Hardware Design" },
-              { icon: <FaServer />, label: "Firmware Development" },
-              { icon: <FaNetworkWired />, label: "Connectivity & Networking" },
-              { icon: <FaCloud />, label: "Cloud Backend & API" },
-              { icon: <FaMobile />, label: "Frontend & Mobile App" },
-              { icon: <FaTools />, label: "Testing & Validation" },
-              { icon: <FaLock />, label: "Security Engineering" },
-              { icon: <FaCertificate />, label: "Certification & Compliance" },
-            ],
-          },
-          {
-            icon: <FaCarSide />,
-            label: "Advanced Driver Assistance System",
-            hasSubmenu: true,
-            submenuKey: "adas",
-            submenu: [
-              { icon: <FaCamera />, label: "Cameras" },
-              { icon: <FaSatelliteDish />, label: "Radar & LIDAR" },
-              { icon: <FaParking />, label: "Ultrasonic Sensors" },
-              { icon: <FaMapMarkerAlt />, label: "GPS + IMU" },
-              { icon: <FaMicrochip />, label: "Embedded Systems" },
-              { icon: <FaBrain />, label: "AI & Computer Vision" },
-            ],
-          },
-          { icon: <FaNetworkWired />, label: "V2X Communication in Vehicles" },
-          { icon: <FaSimCard />, label: "M2M eSIM Manufacturing" },
-        ],
-    products: [
+
+    services: [
       {
-        icon: <FaCogs />,
-        label: "Hardware",
+        icon: <FaMicrochip />,
+        label: "IoT Device Manufacturing",
         hasSubmenu: true,
-        submenuKey: "hardware",
+        submenuKey: "iot_manufacturing",
         submenu: [
-           
-               { icon: <FaMicrochip />, label: "AIS-140 (VLTD)" },
-               { icon: <FaCamera />, label: "Vehicle Camera System" },
-               { icon: <FaBell />, label: "Emergency Panic SOS Buttons" },
-               { icon: <FaBatteryFull />, label: "Li-ion Battery" },
-               { icon: <FaSimCard />, label: "E-SIM" },
-               { icon: <FaIdCard />, label: "Traxo RFID" },
-               { icon: <FaPlug />, label: "Cable Connection Harness" },
-               { icon: <FaServer />, label: "OBD-II Can Connection" },
-              
-             
-        ]
-      }
-    ]
+          { icon: <FaCarSide />, label: "Vehicle Tracking Devices" },
+          { icon: <FaTools />, label: "OBD-II Telematics" },
+          { icon: <FaCamera />, label: "Dash Cameras" },
+          { icon: <FaParking />, label: "Smart Parking Systems" },
+          { icon: <FaIndustry />, label: "Industrial IoT Devices" },
+          { icon: <FaRobot />, label: "Robotics & AGVs" },
+        ],
+      },
+      {
+        icon: <FaRobot />,
+        label: "Vehicle Robotics Device Manufacturer",
+        hasSubmenu: true,
+        submenuKey: "vehicle_robotics",
+        submenu: [
+          { icon: <FaRobot />, label: "Autonomous Vehicle Systems" },
+          { icon: <FaCarSide />, label: "Robotic Delivery Vehicles" },
+          { icon: <FaTools />, label: "In-Vehicle Robotics" },
+          { icon: <FaIndustry />, label: "AGVs and AMRs" },
+          { icon: <FaSatelliteDish />, label: "Teleoperation Devices" },
+          { icon: <FaShieldAlt />, label: "Surveillance & Defense Robotics" },
+        ],
+      },
+    ],
+
+    products: [
+      { icon: <FaCogs />, label: "Hardware", hasSubmenu: true, submenuKey: "hardware" },
+      { icon: <FaGlobeAsia />, label: "Software Solutions", hasSubmenu: true, submenuKey: "software" },
+      { icon: <FaChartLine />, label: "Analytics & Telematics", hasSubmenu: true, submenuKey: "analytics" },
+    ],
+
+    hardware: [
+      { icon: <FaMicrochip />, label: "AIS-140 (VLTD)" },
+      { icon: <FaCamera />, label: "Vehicle Camera System" },
+      { icon: <FaBell />, label: "Emergency Panic SOS Buttons" },
+      { icon: <FaBatteryFull />, label: "Li-ion Battery" },
+      { icon: <FaSimCard />, label: "E-SIM" },
+      { icon: <FaIdCard />, label: "Traxo RFID" },
+      { icon: <FaPlug />, label: "Cable Connection Harness" },
+      { icon: <FaServer />, label: "OBD-II Can Connection" },
+    ],
   };
 
   const dropdownVariants = {
@@ -264,7 +233,9 @@ const NavbarTraxo = () => {
               <div className="bg-black shadow-2xl mx-8 rounded-b-xl">
                 <div className={`max-w-6xl mx-auto py-8 px-8 grid ${getGridColumns()} gap-6`}>
                   {dropdownContent[activeDropdown].map((link, i) => (
-                    <div key={i} className="flex flex-col items-center text-center p-4 hover:bg-gray-900 rounded-lg cursor-pointer"
+                    <div
+                      key={i}
+                      className="flex flex-col items-center text-center p-4 hover:bg-gray-900 rounded-lg cursor-pointer"
                       onMouseEnter={() => link.hasSubmenu && setActiveSubDropdown(link.submenuKey)}
                       onMouseLeave={() => link.hasSubmenu && setActiveSubDropdown(null)}
                     >
@@ -307,7 +278,13 @@ const NavbarTraxo = () => {
                     onClick={() => setActiveDropdown(activeDropdown === item.key ? null : item.key)}
                   >
                     <span className="flex items-center gap-2">{item.icon}{item.name}</span>
-                    {item.hasDropdown && <ChevronDown className={`w-4 h-4 transform transition-transform ${activeDropdown === item.key ? "rotate-180" : ""}`} />}
+                    {item.hasDropdown && (
+                      <ChevronDown
+                        className={`w-4 h-4 transform transition-transform ${
+                          activeDropdown === item.key ? "rotate-180" : ""
+                        }`}
+                      />
+                    )}
                   </button>
 
                   {item.hasDropdown && activeDropdown === item.key && dropdownContent[item.key] && (
@@ -316,17 +293,32 @@ const NavbarTraxo = () => {
                         <div key={i} className="py-2">
                           <div
                             className="flex justify-between items-center cursor-pointer"
-                            onClick={() => subItem.hasSubmenu && setActiveSubDropdown(activeSubDropdown === subItem.submenuKey ? null : subItem.submenuKey)}
+                            onClick={() =>
+                              subItem.hasSubmenu &&
+                              setActiveSubDropdown(
+                                activeSubDropdown === subItem.submenuKey ? null : subItem.submenuKey
+                              )
+                            }
                           >
-                            <span className="flex items-center gap-2 text-gray-700">{subItem.icon}{subItem.label}</span>
-                            {subItem.hasSubmenu && <ChevronDown className={`w-4 h-4 transform transition-transform ${activeSubDropdown === subItem.submenuKey ? "rotate-180" : ""}`} />}
+                            <span className="flex items-center gap-2 text-gray-700">
+                              {subItem.icon}
+                              {subItem.label}
+                            </span>
+                            {subItem.hasSubmenu && (
+                              <ChevronDown
+                                className={`w-4 h-4 transform transition-transform ${
+                                  activeSubDropdown === subItem.submenuKey ? "rotate-180" : ""
+                                }`}
+                              />
+                            )}
                           </div>
 
                           {subItem.hasSubmenu && activeSubDropdown === subItem.submenuKey && (
                             <div className="pl-6 mt-2">
                               {subItem.submenu.map((deep, idx) => (
                                 <div key={idx} className="py-1 flex items-center gap-2 text-gray-600">
-                                  {deep.icon}{deep.label}
+                                  {deep.icon}
+                                  {deep.label}
                                 </div>
                               ))}
                             </div>
