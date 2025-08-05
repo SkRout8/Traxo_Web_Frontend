@@ -69,13 +69,14 @@ const NavbarTraxo = () => {
   }, []);
 
   const navItems = [
-    { name: "About Us", key: "about", hasDropdown: true, icon: <IoPeopleOutline className="text-lg" /> },
-    { name: "Manufacture", key: "manufacture", hasDropdown: true, icon: <IoBusinessOutline className="text-lg" /> },
-    { name: "Services", key: "services", hasDropdown: true, icon: <MdOutlineMiscellaneousServices className="text-lg" /> },
-    { name: "Products", key: "products", hasDropdown: true, icon: <FaBoxOpen className="text-lg" /> },
-    { name: "Dealer Center", key: "dealer", hasDropdown: false, icon: <FaHandshake className="text-lg" /> },
-    { name: "Customer Centre", key: "customer", hasDropdown: false, icon: <FaHeadset className="text-lg" /> },
+    { name: "About Us", key: "about", path: "/about", hasDropdown: true, icon: <IoPeopleOutline className="text-lg" /> },
+    { name: "Manufacture", key: "manufacture", path: "/manufacture", hasDropdown: true, icon: <IoBusinessOutline className="text-lg" /> },
+    { name: "Services", key: "services", path: "/services", hasDropdown: true, icon: <MdOutlineMiscellaneousServices className="text-lg" /> },
+    { name: "Products", key: "products", path: "/products", hasDropdown: true, icon: <FaBoxOpen className="text-lg" /> },
+    { name: "Dealer Center", key: "dealer", path: "/dealer", hasDropdown: false, icon: <FaHandshake className="text-lg" /> },
+    { name: "Customer Centre", key: "customer", path: "/customercare", hasDropdown: false, icon: <FaHeadset className="text-lg" /> },
   ];
+
 
   const topNavItems = [
     { name: "Investor's Documents", path: "/investors-docs", icon: <FaFileAlt className="text-sm" /> },
@@ -230,14 +231,18 @@ const NavbarTraxo = () => {
                 onMouseEnter={() => isDesktop && item.hasDropdown && setActiveDropdown(item.key)}
                 onMouseLeave={() => isDesktop && setActiveDropdown(null)}
               >
-                <button className="flex items-center gap-1 text-[#0e1225] hover:text-white font-medium">
+                <Link
+                  to={item.path} // Added path from navItems
+                  className="flex items-center gap-1 text-[#0e1225] hover:text-white font-medium"
+                >
                   {item.icon}
                   {item.name}
                   {item.hasDropdown && <ChevronDown className="w-4 h-4" />}
-                </button>
+                </Link>
               </div>
             ))}
           </div>
+
 
           {/* Mobile Menu Button */}
           <div className="lg:hidden">

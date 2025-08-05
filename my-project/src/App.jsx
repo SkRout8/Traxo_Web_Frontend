@@ -6,6 +6,7 @@ import Services from "./components/pages/Services";
 import Products from "./components/pages/Products";
 import Contact from "./components/pages/Contact";
 import NavbarTraxo from "./components/NavbarTraxo";
+import CustomerCare from "./components/pages/CustomerCare";
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/products" element={<Products />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/customercare" element={<CustomerCare/>}/>
       </Routes>
     </div>
   );

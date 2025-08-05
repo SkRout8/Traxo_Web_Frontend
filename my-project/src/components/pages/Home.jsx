@@ -11,6 +11,8 @@ import IoTDevicesSection from "../IoTDevicesSection";
 import IndustriesSection from "../IndustriesSection";
 import Footer from "../Footer";
 import ManufacturingCapabilities from "./ManufacturingCapabilities";
+import Enquiry from "./Enquiry";
+import CustomerCare from "./CustomerCare";
 
 export default function Home() {
   const images = [img, img2, img1];
@@ -87,6 +89,10 @@ export default function Home() {
       <section>
         <IndustriesSection />
       </section>
+      <section>
+        <Enquiry/>
+      </section>
+     
       <section>
         <Footer />
       </section>

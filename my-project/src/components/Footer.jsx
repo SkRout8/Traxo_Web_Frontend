@@ -26,13 +26,15 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-[#f0f5ff] text-gray-800 pt-12 pb-6">
+    <footer className="bg-[#0e1225] text-gray-300 pt-12 pb-6 overflow-x-hidden">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10">
 
         {/* Company Info */}
         <div className="md:col-span-2 lg:col-span-1">
-          <h2 className="text-2xl font-bold mb-4">TRAXO (INDIA) AUTOMATION PVT. LTD.</h2>
-          <p className="text-sm text-gray-700 leading-relaxed">
+          <h2 className="text-2xl font-bold text-yellow-500 mb-4">
+            TRAXO (INDIA) AUTOMATION PVT. LTD.
+          </h2>
+          <p className="text-sm leading-relaxed text-gray-400">
             Delivering cutting-edge automation, GPS, and IoT tracking solutions for businesses,
             industries, and individuals across India.
           </p>
@@ -40,11 +42,16 @@ export default function Footer() {
 
         {/* Navigation */}
         <div>
-          <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+          <h3 className="text-lg font-semibold mb-4 text-yellow-500 uppercase tracking-wide">
+            Quick Links
+          </h3>
           <ul className="space-y-2 text-sm">
             {navItems.map((item, idx) => (
               <li key={idx}>
-                <Link to={item.link} className="flex items-center gap-2 hover:text-yellow-500 transition-colors">
+                <Link
+                  to={item.link}
+                  className="flex items-center gap-2 hover:text-yellow-400 transition-colors"
+                >
                   {item.icon}
                   {item.name}
                 </Link>
@@ -55,7 +62,9 @@ export default function Footer() {
 
         {/* Contact Info */}
         <div>
-          <h3 className="text-lg font-semibold mb-4">Contact</h3>
+          <h3 className="text-lg font-semibold mb-4 text-yellow-500 uppercase tracking-wide">
+            Contact
+          </h3>
           <ul className="space-y-3 text-sm">
             <li className="flex items-start gap-3">
               <FaEnvelope className="text-yellow-500 mt-0.5" />
@@ -63,14 +72,16 @@ export default function Footer() {
             </li>
             <li className="flex items-start gap-3">
               <FaPhoneAlt className="text-yellow-500 mt-0.5" />
-              <span>1800 891 1545 (Toll-Free)</span>
+              <span>+91-06782260196 (Toll-Free)</span>
             </li>
           </ul>
         </div>
 
         {/* Addresses */}
         <div className="md:col-span-2 lg:col-span-1">
-          <h3 className="text-lg font-semibold mb-4">Our Offices</h3>
+          <h3 className="text-lg font-semibold mb-4 text-yellow-500 uppercase tracking-wide">
+            Our Offices
+          </h3>
           <ul className="space-y-3 text-sm">
             <li className="flex items-start gap-3">
               <FaMapMarkerAlt className="text-yellow-500 mt-1" />
@@ -98,20 +109,31 @@ export default function Footer() {
       </div>
 
       {/* Divider */}
-      <div className="border-t border-gray-300 my-6"></div>
+      <div className="border-t border-gray-700 my-6"></div>
 
       {/* Bottom Row */}
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
-        <p className="text-sm text-gray-600 text-center md:text-left">
+        <p className="text-sm text-gray-500 text-center md:text-left">
           © {new Date().getFullYear()} TRAXO (India) Automation Pvt. Ltd. All Rights Reserved.
         </p>
 
         {/* Social Icons */}
-        <div className="flex space-x-4 text-gray-600">
-          <a href="#" aria-label="Facebook" className="hover:text-yellow-500"><FaFacebookF /></a>
-          <a href="#" aria-label="Twitter" className="hover:text-yellow-500"><FaTwitter /></a>
-          <a href="#" aria-label="LinkedIn" className="hover:text-yellow-500"><FaLinkedinIn /></a>
-          <a href="#" aria-label="Instagram" className="hover:text-yellow-500"><FaInstagram /></a>
+        <div className="flex space-x-3">
+          {[
+            { icon: <FaFacebookF />, label: "Facebook" },
+            { icon: <FaTwitter />, label: "Twitter" },
+            { icon: <FaLinkedinIn />, label: "LinkedIn" },
+            { icon: <FaInstagram />, label: "Instagram" },
+          ].map((social, idx) => (
+            <a
+              key={idx}
+              href="#"
+              aria-label={social.label}
+              className="w-9 h-9 flex items-center justify-center rounded-full bg-gray-800 text-gray-300 hover:bg-yellow-500 hover:text-black transition-all"
+            >
+              {social.icon}
+            </a>
+          ))}
         </div>
       </div>
     </footer>
