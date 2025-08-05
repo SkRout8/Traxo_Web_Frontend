@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaCar, FaIndustry, FaRobot } from "react-icons/fa";
-import traxo1 from '../images/Traxo.jpeg'
+import traxo1 from '../../images/traxo4.jpeg'
 
 const manufacturingItems = [
   {

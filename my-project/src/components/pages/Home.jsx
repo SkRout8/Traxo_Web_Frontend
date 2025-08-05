@@ -7,10 +7,10 @@ import img2 from "../../images/traxo2.png";
 import ProductSection from "../ProductSection";
 import WhyChooseUs from "../WhyChooseUs";
 import GPSTrackingSection from "../GPSTrackingSection";
-import ManufacturingCapabilities from "../manufacturingItems";
 import IoTDevicesSection from "../IoTDevicesSection";
 import IndustriesSection from "../IndustriesSection";
 import Footer from "../Footer";
+import ManufacturingCapabilities from "./ManufacturingCapabilities";
 
 export default function Home() {
   const images = [img,img2,img1];
